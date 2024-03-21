@@ -16,6 +16,7 @@ class Categoryy {
   final String title;
   final String image;
   final TextStyle textStyle;
+  final Color color;
 
   final ScrollController scrollController;
 
@@ -24,6 +25,7 @@ class Categoryy {
     required this.title,
     required this.image,
     required this.textStyle,
+    required this.color,
   }) : scrollController = ScrollController();
 }
 
@@ -35,45 +37,50 @@ class Userprincipal extends StatelessWidget {
         image: 'lib/images/hospedaje.png',
         textStyle: const TextStyle(
           fontSize: 14,
-          color: Colors.black,
           fontFamily: 'Montserrat',
-        )),
+          fontWeight: FontWeight.bold,
+        ),
+        color: Color.fromARGB(255, 235, 205, 185)),
     Categoryy(
         id: '2',
         title: 'Gastronomía',
         image: 'lib/images/restaurant.png',
         textStyle: const TextStyle(
           fontSize: 14,
-          color: Colors.black,
           fontFamily: 'Montserrat',
-        )),
+          fontWeight: FontWeight.bold,
+        ),
+        color: Color.fromARGB(255, 226, 126, 126)),
     Categoryy(
         id: '3',
         title: 'Biodiversidad',
         image: 'lib/images/emblematicos.png',
         textStyle: const TextStyle(
           fontSize: 14,
-          color: Colors.black,
           fontFamily: 'Montserrat',
-        )),
+          fontWeight: FontWeight.bold,
+        ),
+        color: Color.fromARGB(255, 93, 167, 117)),
     Categoryy(
         id: '4',
         title: 'Artesanías',
         image: 'lib/images/artesanos.png',
         textStyle: const TextStyle(
           fontSize: 14,
-          color: Colors.black,
           fontFamily: 'Montserrat',
-        )),
+          fontWeight: FontWeight.bold,
+        ),
+        color: Color.fromARGB(255, 139, 67, 187)),
     Categoryy(
         id: '5',
         title: 'Atractivos \n Turísticos',
         image: 'lib/images/biodiversidad.png',
         textStyle: const TextStyle(
           fontSize: 14,
-          color: Colors.black,
           fontFamily: 'Montserrat',
-        )),
+          fontWeight: FontWeight.bold,
+        ),
+        color: Color.fromARGB(255, 124, 99, 233)),
     // Agrega más categorías con imágenes según sea necesario
   ];
 
@@ -231,7 +238,7 @@ class Userprincipal extends StatelessWidget {
                             const EdgeInsets.only(right: 12, bottom: 8, top: 8),
                         child: Material(
                           elevation: 3,
-                          color: Color.fromARGB(255, 253, 199, 167),
+                          color: categoriies[index].color,
                           borderRadius: BorderRadius.circular(30),
                           shadowColor: Colors.black,
                           child: SizedBox(
@@ -271,6 +278,27 @@ class Userprincipal extends StatelessWidget {
                     image: const DecorationImage(
                       image: NetworkImage(
                           'http://www.jaumave.gob.mx/wp-content/uploads/sites/13/2022/05/slider_jaumave_2400x600-04-850x300.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: Colors.grey[300] ?? Colors.grey,
+                      width: 3.0,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 28),
+              // Aquí añadimos la imagen debajo de las categorías
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 175,
+                  decoration: BoxDecoration(
+                    image: const DecorationImage(
+                      image: NetworkImage(
+                          'https://map.viamichelin.com/map/carte?map=viamichelin&z=10&lat=23.4097&lon=-99.37585&width=550&height=382&format=png&version=latest&layer=background&debug_pattern=.*'),
                       fit: BoxFit.cover,
                     ),
                     borderRadius: BorderRadius.circular(10),
