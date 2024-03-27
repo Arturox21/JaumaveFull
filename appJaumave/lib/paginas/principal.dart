@@ -6,6 +6,7 @@ import 'package:mave/paginas/ListScreenComida.dart';
 import 'package:mave/paginas/ListScreenTurismo.dart';
 import 'package:mave/paginas/ListscreenHospedaje.dart';
 import 'package:mave/paginas/ListscreenLugares.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -268,43 +269,170 @@ class Userprincipal extends StatelessWidget {
                   )),
 
               const SizedBox(height: 28),
-              // Aquí añadimos la imagen debajo de las categorías
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      vertical: 0,
+                      horizontal:
+                          20), // Ajusta los valores según el espacio que desees agregar
+                  child: SizedBox(
+                    child: Text(
+                      '¿Estás listo para vivir la mejor experiencia de tu vida? / Are you ready to live the best experience of your life?',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'Montserrat',
+                        //fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 28),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: 105,
-                  decoration: BoxDecoration(
-                    image: const DecorationImage(
-                      image: NetworkImage(
-                          'http://www.jaumave.gob.mx/wp-content/uploads/sites/13/2022/05/slider_jaumave_2400x600-04-850x300.jpg'),
-                      fit: BoxFit.cover,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Colors.grey[300] ?? Colors.grey,
-                      width: 3.0,
+                  child: ImageOnTapWidget(
+                    imageUrl:
+                        'http://www.jaumave.gob.mx/wp-content/uploads/sites/13/2022/05/slider_jaumave_2400x600-04-850x300.jpg',
+                    mapUrl: 'http://www.jaumave.gob.mx/turismo/',
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 28),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      vertical: 0,
+                      horizontal:
+                          20), // Ajusta los valores según el espacio que desees agregar
+                  child: SizedBox(
+                    child: Text(
+                      'Ubicación / Location',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                 ),
               ),
+
+              const SizedBox(height: 28),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 175,
+                  child: ImageOnTapWidget(
+                    imageUrl:
+                        'https://map.viamichelin.com/map/carte?map=viamichelin&z=10&lat=23.4097&lon=-99.37585&width=550&height=382&format=png&version=latest&layer=background&debug_pattern=.*',
+                    mapUrl:
+                        'https://www.google.com/maps/search/?api=1&query=23.4120243284565,-99.37968516770518',
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 28),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      vertical: 0,
+                      horizontal:
+                          20), // Ajusta los valores según el espacio que desees agregar
+                  child: SizedBox(
+                    child: Text(
+                      'Visita la página oficial / Visit the official website',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black45,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
               const SizedBox(height: 28),
               // Aquí añadimos la imagen debajo de las categorías
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 175,
-                  decoration: BoxDecoration(
-                    image: const DecorationImage(
-                      image: NetworkImage(
-                          'https://map.viamichelin.com/map/carte?map=viamichelin&z=10&lat=23.4097&lon=-99.37585&width=550&height=382&format=png&version=latest&layer=background&debug_pattern=.*'),
-                      fit: BoxFit.cover,
+                  height: 300,
+                  child: GestureDetector(
+                    onTap: () {
+                      _launchURL(
+                          'http://www.jaumave.gob.mx/turismo/'); // Reemplaza esto con tu URL deseada
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        'assets/Monumento.jpg', // Ruta de la imagen local en assets
+                        // Ajusta el alto de la imagen según sea necesario
+                        fit: BoxFit
+                            .cover, // Ajusta el modo de ajuste de la imagen según sea necesario
+                      ),
                     ),
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Colors.grey[300] ?? Colors.grey,
-                      width: 3.0,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 28),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      vertical: 0,
+                      horizontal:
+                          20), // Ajusta los valores según el espacio que desees agregar
+                  child: SizedBox(
+                    child: Text(
+                      'Tienda Artesanal y Productora 100% Jaumavense / Handicraft products store',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 28),
+              // Aquí añadimos la imagen debajo de las categorías
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 200,
+                  child: GestureDetector(
+                    onTap: () {
+                      _launchURL(
+                          'https://www.facebook.com/profile.php?id=100088940547860'); // Reemplaza esto con tu URL deseada
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        'assets/TiendaJaumavense.jpg', // Ruta de la imagen local en assets
+                        // Ajusta el alto de la imagen según sea necesario
+                        fit: BoxFit
+                            .cover, // Ajusta el modo de ajuste de la imagen según sea necesario
+                      ),
                     ),
                   ),
                 ),
@@ -314,6 +442,49 @@ class Userprincipal extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class ImageOnTapWidget extends StatelessWidget {
+  final String imageUrl;
+  final String mapUrl;
+
+  const ImageOnTapWidget({
+    Key? key,
+    required this.imageUrl,
+    required this.mapUrl,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        _launchUrl(mapUrl);
+      },
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Image.network(
+          imageUrl,
+          fit: BoxFit.cover, // ajusta la imagen al tamaño del contenedor
+        ),
+      ),
+    );
+  }
+
+  Future<void> _launchUrl(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'No se pudo abrir el enlace';
+    }
+  }
+}
+
+void _launchURL(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'No se pudo abrir la URL: $url';
   }
 }
 

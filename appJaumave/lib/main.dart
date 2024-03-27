@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'App Jaumave',
+        title: 'Jaumaventurate',
         theme: ThemeData(
           primaryColor: Colors.purple[700],
         ),
