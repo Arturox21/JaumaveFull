@@ -16,7 +16,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Mave',
+        title: 'Jaumaventurate',
+        theme: ThemeData(
+          primaryColor: Colors.purple[700],
+        ),
         routes: {
           '/ruta_categoria1': (context) => const Categoria1Screen(),
         },

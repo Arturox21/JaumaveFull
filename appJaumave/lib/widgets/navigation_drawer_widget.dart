@@ -12,8 +12,8 @@ class NavigationDrawerWidget extends StatelessWidget {
   const NavigationDrawerWidget({super.key});
   @override
   Widget build(BuildContext context) {
-    const nameapp = 'App Jaumave';
-    const ciudad = 'Tamaulipas, México';
+    const nameapp = 'Jaumaventurate';
+    const ciudad = 'Jaumave, Tamaulipas';
     const urlImage =
         'https://jaumavetamaulipas.weebly.com/uploads/1/6/8/7/16876174/4009179_orig.jpg';
 

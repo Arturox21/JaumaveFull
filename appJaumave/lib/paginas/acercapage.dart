@@ -77,7 +77,7 @@ class AcercaPage extends StatelessWidget {
                       height: 15,
                     ),
                     Text(
-                      "1 - Jesus Ernesto Romero Garcia\n2- José Arturo Villanueva González\n3 - Jose Francisco Olivo Hernandez\n4- Eleazar José Quiroga Reyes\n5- Edson Luciano Martinez Torrez ",
+                      "1 - Jesús Ernesto Romero García \n2- José Arturo Villanueva González\n3 - José Francisco Olivo Hernández \n4- Eleazar José Quiroga Reyes\n5- Edson Luciano Martínez Torres",
                       style: TextStyle(
                         fontSize: 15,
                         fontFamily: 'Montserrat',

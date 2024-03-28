@@ -173,8 +173,8 @@ class _DetailScreenLugarState extends State<DetailScreenLugar> {
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Montserrat'),
-                        primary: Colors.white,
-                        onPrimary: Colors.purple,
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.purple,
                         elevation: 15,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),

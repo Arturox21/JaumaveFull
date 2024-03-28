@@ -204,8 +204,8 @@ class _DetailScreenComidaState extends State<DetailScreenComida> {
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Montserrat'),
-                        primary: Colors.white,
-                        onPrimary: Colors.purple,
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.purple,
                         elevation: 15,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
@@ -231,8 +231,8 @@ class _DetailScreenComidaState extends State<DetailScreenComida> {
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Montserrat'),
-                        primary: Colors.purple,
-                        onPrimary: Colors.pink[50],
+                        backgroundColor: Colors.purple,
+                        foregroundColor: Colors.pink[50],
                         elevation: 15,
                         shadowColor: Colors.purpleAccent,
                         shape: RoundedRectangleBorder(
