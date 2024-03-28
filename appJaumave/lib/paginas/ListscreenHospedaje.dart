@@ -19,8 +19,8 @@ class _HospedajeScreenState extends State<HospedajeScreen> {
   double screenHeight = 0;
 
   Future<List<dynamic>> getHospedaje() async {
-    final response = await http
-        .get(Uri.parse('http://10.0.2.2:3000/api/post?section=Hospedaje'));
+    final response = await http.get(Uri.parse(
+        'https://api.jaumaveonline.com:8463/api/post?section=Hospedaje'));
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body) as List;

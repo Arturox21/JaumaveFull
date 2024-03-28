@@ -85,8 +85,8 @@ class Userprincipal extends StatelessWidget {
   ];
 
   Future<List<Category>> getTrending() async {
-    final response = await http
-        .get(Uri.parse('http://10.0.2.2:3000/api/post?trending=true'));
+    final response = await http.get(
+        Uri.parse('https://api.jaumaveonline.com:8463/api/post?trending=true'));
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body) as List<dynamic>;
@@ -335,7 +335,7 @@ class HeroCarouselCard extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Image.network(
-              "http://10.0.2.2:3000/optimize/${category.imageUrl}",
+              "https://api.jaumaveonline.com:8463/optimize/${category.imageUrl}",
               fit: BoxFit.cover,
               width: 1000.0,
             ),

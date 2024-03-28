@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mave/modelos/events_model.dart';
 import 'package:mave/widgets/shared/theme.dart';
 
-
-
 class PopularCard extends StatelessWidget {
   final EventModel event;
 
@@ -34,7 +32,8 @@ class PopularCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image:NetworkImage( "http://10.0.2.2:3000/optimize/${event.image!}" ),
+                    image: NetworkImage(
+                        "https://api.jaumaveonline.com:8463/optimize/${event.image!}"),
                   ),
                 ),
               ),
