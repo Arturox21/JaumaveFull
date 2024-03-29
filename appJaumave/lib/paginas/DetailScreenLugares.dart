@@ -50,7 +50,7 @@ class _DetailScreenLugarState extends State<DetailScreenLugar> {
                   width: screenWidth,
                   child: Image.network(
                     //"lib/images/${widget.asset}",
-                    "http://10.0.2.2:3000/optimize/${widget.asset}",
+                    "https://api.jaumaveonline.com:8463/optimize/${widget.asset}",
                     fit: BoxFit.cover,
                   ),
                 ),

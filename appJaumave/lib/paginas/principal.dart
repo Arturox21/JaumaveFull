@@ -281,10 +281,10 @@ class Userprincipal extends StatelessWidget {
                       '¿Estás listo para vivir la mejor experiencia de tu vida? / Are you ready to live the best experience of your life?',
                       textAlign: TextAlign.left,
                       style: TextStyle(
-                        fontSize: 18,
-                        fontFamily: 'Montserrat',
+                        fontSize: 15,
+                        fontFamily: 'TitanOne',
                         //fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: Color.fromARGB(255, 70, 4, 124),
                       ),
                     ),
                   ),
