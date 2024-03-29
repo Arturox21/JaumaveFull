@@ -10,8 +10,8 @@ class Usereventos extends StatelessWidget {
   const Usereventos({Key? key}) : super(key: key);
 
   Future<List<EventModel>> getEventos() async {
-    final response =
-        await http.get(Uri.parse('http://10.0.2.2:3000/api/eventos?date=now'));
+    final response = await http.get(
+        Uri.parse('https://api.jaumaveonline.com:8463/api/eventos?date=now'));
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body) as List<dynamic>;
@@ -26,8 +26,8 @@ class Usereventos extends StatelessWidget {
   }
 
   Future<List<EventModel>> getSoon() async {
-    final response =
-        await http.get(Uri.parse('http://10.0.2.2:3000/api/eventos?date=soon'));
+    final response = await http.get(
+        Uri.parse('https://api.jaumaveonline.com:8463/api/eventos?date=soon'));
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body) as List<dynamic>;

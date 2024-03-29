@@ -53,7 +53,7 @@ class _DetailScreenComidaState extends State<DetailScreenComida> {
                           width: screenWidth,
                           height: screenHeight,
                           child: Image.network(
-                            "http://10.0.2.2:3000/optimize/${widget.asset}",
+                            "https://api.jaumaveonline.com:8463/optimize/${widget.asset}",
                             fit: BoxFit
                                 .cover, // Ajusta la imagen para que se vea completa
                           ),
@@ -71,7 +71,7 @@ class _DetailScreenComidaState extends State<DetailScreenComida> {
                     height: screenHeight / 2.2,
                     width: screenWidth,
                     child: Image.network(
-                      "http://10.0.2.2:3000/optimize/${widget.asset}",
+                      "https://api.jaumaveonline.com:8463/optimize/${widget.asset}",
                       fit: BoxFit.cover,
                     ),
                   ),

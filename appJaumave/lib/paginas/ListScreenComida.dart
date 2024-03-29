@@ -25,8 +25,8 @@ class _ComidaScreenState extends State<ComidaScreen> {
   }
 
   Future<List<dynamic>> getRestaurantes() async {
-    final response = await http
-        .get(Uri.parse('http://10.0.2.2:3000/api/post?section=Gastronomía'));
+    final response = await http.get(Uri.parse(
+        'https://api.jaumaveonline.com:8463/api/post?section=Gastronomía'));
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body) as List;
@@ -172,7 +172,7 @@ class _ComidaScreenState extends State<ComidaScreen> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Image.network(
-                    "http://10.0.2.2:3000/optimize/$asset",
+                    "https://api.jaumaveonline.com:8463/optimize/$asset",
                     fit: BoxFit.cover,
                   ),
                 ),

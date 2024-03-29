@@ -86,8 +86,8 @@ class Userprincipal extends StatelessWidget {
   ];
 
   Future<List<Category>> getTrending() async {
-    final response = await http
-        .get(Uri.parse('http://10.0.2.2:3000/api/post?trending=true'));
+    final response = await http.get(
+        Uri.parse('https://api.jaumaveonline.com:8463/api/post?trending=true'));
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body) as List<dynamic>;
@@ -281,10 +281,10 @@ class Userprincipal extends StatelessWidget {
                       '¿Estás listo para vivir la mejor experiencia de tu vida? / Are you ready to live the best experience of your life?',
                       textAlign: TextAlign.left,
                       style: TextStyle(
-                        fontSize: 18,
-                        fontFamily: 'Montserrat',
+                        fontSize: 15,
+                        fontFamily: 'TitanOne',
                         //fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: Color.fromARGB(255, 70, 4, 124),
                       ),
                     ),
                   ),
@@ -506,7 +506,7 @@ class HeroCarouselCard extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Image.network(
-              "http://10.0.2.2:3000/optimize/${category.imageUrl}",
+              "https://api.jaumaveonline.com:8463/optimize/${category.imageUrl}",
               fit: BoxFit.cover,
               width: 1000.0,
             ),

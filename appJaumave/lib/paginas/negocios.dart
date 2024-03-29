@@ -8,7 +8,8 @@ class NegociosSearchDelegate extends SearchDelegate {
   List<Lugares> searchResults = [];
 
   Future<void> fetchData() async {
-    final response = await http.get(Uri.parse('http://10.0.2.2:3000/api/post'));
+    final response = await http
+        .get(Uri.parse('https://api.jaumaveonline.com:8463/api/post'));
 
     if (response.statusCode == 200) {
       List<dynamic> jsonData = json.decode(response.body);
