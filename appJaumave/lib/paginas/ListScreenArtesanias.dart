@@ -21,7 +21,7 @@ class _ArtesaniaScreenState extends State<ArtesaniaScreen> {
 
   Future<List<dynamic>> getHospedaje() async {
     final response = await http.get(Uri.parse(
-        'https://api.jaumaveonline.com:8463/api/post?section=Artesanos'));
+        'https://api.jaumaveonline.com:8463/api/post?section=Artesanías'));
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body) as List;
