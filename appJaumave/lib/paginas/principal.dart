@@ -41,7 +41,7 @@ class Userprincipal extends StatelessWidget {
           fontFamily: 'Montserrat',
           fontWeight: FontWeight.bold,
         ),
-        color: Color.fromARGB(255, 235, 205, 185)),
+        color: Color.fromARGB(255, 253, 186, 141)),
     Categoryy(
         id: '2',
         title: 'Gastronomía',
