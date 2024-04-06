@@ -50,6 +50,33 @@ class Usercontactos extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         vertical: 10, horizontal: 20),
                     child: ListTile(
+                      title: Text('Protección Civil'),
+                      subtitle: Text('Teléfono: (832) 101 6560'),
+                      leading: Icon(
+                        Icons.security,
+                        color: Colors.black,
+                      ),
+                      trailing: Icon(
+                        Icons.phone,
+                        color: Colors.black,
+                      ),
+                      onTap: () async {
+                        final Uri url = Uri(
+                          scheme: 'tel',
+                          path: "8321016560",
+                        );
+                        if (await canLaunchUrl(url)) {
+                          await launchUrl(url);
+                        } else {
+                          print('No se pudo realizar la llamada');
+                        }
+                      },
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 20),
+                    child: ListTile(
                       title: Text('Seguridad Estatal'),
                       subtitle: Text('Teléfono: 911'),
                       leading: Icon(
@@ -249,3 +276,4 @@ class Usercontactos extends StatelessWidget {
             )));
   }
 }
+
