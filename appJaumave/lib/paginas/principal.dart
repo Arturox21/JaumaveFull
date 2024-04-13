@@ -37,6 +37,7 @@ class Userprincipal extends StatelessWidget {
         title: 'Hospedaje',
         image: 'lib/images/hospedaje.png',
         textStyle: const TextStyle(
+          color: Color.fromARGB(255, 202, 101, 101),
           fontSize: 14,
           fontFamily: 'Montserrat',
           fontWeight: FontWeight.bold,
@@ -47,6 +48,7 @@ class Userprincipal extends StatelessWidget {
         title: 'Gastronomía',
         image: 'lib/images/restaurant.png',
         textStyle: const TextStyle(
+          color: Color.fromARGB(255, 124, 71, 71),
           fontSize: 14,
           fontFamily: 'Montserrat',
           fontWeight: FontWeight.bold,
@@ -57,6 +59,7 @@ class Userprincipal extends StatelessWidget {
         title: 'Biodiversidad',
         image: 'lib/images/emblematicos.png',
         textStyle: const TextStyle(
+          color: Color.fromARGB(255, 47, 83, 116),
           fontSize: 14,
           fontFamily: 'Montserrat',
           fontWeight: FontWeight.bold,
@@ -67,6 +70,7 @@ class Userprincipal extends StatelessWidget {
         title: 'Artesanías',
         image: 'lib/images/artesanos.png',
         textStyle: const TextStyle(
+          color: Color.fromARGB(255, 216, 152, 141),
           fontSize: 14,
           fontFamily: 'Montserrat',
           fontWeight: FontWeight.bold,
@@ -77,6 +81,7 @@ class Userprincipal extends StatelessWidget {
         title: 'Atractivos \n Turísticos',
         image: 'lib/images/biodiversidad.png',
         textStyle: const TextStyle(
+          color: Color.fromARGB(255, 238, 209, 82),
           fontSize: 14,
           fontFamily: 'Montserrat',
           fontWeight: FontWeight.bold,
