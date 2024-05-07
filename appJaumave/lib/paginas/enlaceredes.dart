@@ -266,6 +266,46 @@ class Social extends StatelessWidget {
                     },
                   ),
                 ),
+                const Divider(height: 50),
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
+                    child: SizedBox(
+                      child: Text(
+                        'Política de privacidad',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  child: ListTile(
+                    title: Text('Política de privacidad Jaumaventurate'),
+                    leading: Icon(
+                      Icons.open_in_new,
+                      color: Colors.black,
+                      size: 50,
+                    ),
+                    onTap: () async {
+                      Uri uri = Uri.parse(
+                        'https://politicasjaumaventurate.blogspot.com/2024/05/politica-de-privacidad-jaumaventurate.html',
+                      );
+                      if (!await launcher.launchUrl(uri)) {
+                        debugPrint(
+                            "No se pudo abrir el enlace"); // because the simulator doesn't has the email app
+                      }
+                    },
+                  ),
+                ),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -312,3 +352,4 @@ class Social extends StatelessWidget {
             ),
           )));
 }
+
