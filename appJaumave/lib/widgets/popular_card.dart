@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mave/modelos/events_model.dart';
 import 'package:mave/widgets/shared/theme.dart';
-
-
+import 'package:mave/modelos/Ver_Eventos.dart';
 
 class PopularCard extends StatelessWidget {
   final EventModel event;
@@ -16,7 +15,7 @@ class PopularCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 290,
-      height: 228,
+      height: 298, //258
       padding: const EdgeInsets.all(12),
       margin: const EdgeInsets.only(right: 18),
       decoration: BoxDecoration(
@@ -34,7 +33,8 @@ class PopularCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image:NetworkImage( "http://10.0.2.2:3000/optimize/${event.image!}" ),
+                    image: NetworkImage(
+                        "https://api.jaumaveonline.com:8463/optimize/${event.image!}"),
                   ),
                 ),
               ),
@@ -57,6 +57,42 @@ class PopularCard extends StatelessWidget {
             '${event.day!} ${event.month!} • ${event.time!}',
             style: secondaryTextStyle.copyWith(
               fontSize: 12,
+            ),
+          ),
+          const SizedBox(
+            height: 7,
+          ),
+          SizedBox(
+            width: double.infinity,
+            height: 33,
+            child: TextButton(
+              /*child: Padding(
+                padding: EdgeInsets.only(bottom: 7),
+              ),*/
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => VerEventos(
+                              title: event.name!,
+                              image: event.image!,
+                              description: event.details!,
+                              location: event.location!,
+                              day: event.day!,
+                              month: event.month!,
+                              time: event.time!,
+                            )));
+              },
+              style: TextButton.styleFrom(
+                backgroundColor: orangeColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+              child: Text(
+                'Ver',
+                style: whiteTextStyle,
+              ),
             ),
           ),
         ],

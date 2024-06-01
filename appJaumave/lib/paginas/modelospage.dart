@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:mave/paginas/cardenal.dart';
-
 import 'package:mave/paginas/mariposa.dart';
 
 class apartadoRA extends StatelessWidget {
@@ -33,7 +33,8 @@ class apartadoRA extends StatelessWidget {
               child: ListTile(
                 leading: CircleAvatar(
                   radius: 28,
-                  backgroundImage: NetworkImage(negocio.imagen),
+                  backgroundImage: CachedNetworkImageProvider(negocio.imagen),
+                  backgroundColor: Colors.transparent,
                 ),
                 title: Text(negocio.Nombre),
                 subtitle: Text(negocio.descripcion),
@@ -67,13 +68,13 @@ List<Negocio> negocios = [
       descripcion:
           'Es quizás la más conocida de todas las mariposas de América del Norte.',
       imagen:
-          'https://th.bing.com/th/id/R.7c558a9b479820f54283bed61147dbf9?rik=2wFvikyYPPhheg&riu=http%3a%2f%2fupload.wikimedia.org%2fwikipedia%2fcommons%2f3%2f37%2fMariposa_Monarca_(Danaus_plexippus)_(5185513148).jpg&ehk=Z2lq7DQJRqdhOVZxQWg3L42zn%2bj9hd%2b%2bLjgmsUdInLg%3d&risl=1&pid=ImgRaw&r=0'),
+          'https://drive.google.com/uc?export=view&id=15c-iCen-KhFYIH572UVYhvV2cdSvOsOM'),
   const Negocio(
       Nombre: 'Cardenal Rojo',
       descripcion:
           'El macho canta con un silbido fuerte y claro desde la copa de un árbol u otro punto elevado para delimitar su territorio.',
       imagen:
-          'https://inaturalist-open-data.s3.amazonaws.com/photos/1064/large.jpg?1545346629'),
+          'https://drive.google.com/uc?export=view&id=1iWBL9bhAdCk-x8oVbrMrEcJLXikNqFoC'),
 ];
 
 class Negocio {

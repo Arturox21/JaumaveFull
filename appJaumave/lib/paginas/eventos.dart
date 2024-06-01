@@ -10,8 +10,8 @@ class Usereventos extends StatelessWidget {
   const Usereventos({Key? key}) : super(key: key);
 
   Future<List<EventModel>> getEventos() async {
-    final response =
-        await http.get(Uri.parse('http://10.0.2.2:3000/api/eventos?date=now'));
+    final response = await http.get(
+        Uri.parse('https://api.jaumaveonline.com:8463/api/eventos?date=now'));
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body) as List<dynamic>;
@@ -19,15 +19,13 @@ class Usereventos extends StatelessWidget {
           data.map((json) => EventModel.fromJson(json)).toList();
       return events;
     } else {
-      // If the server did not return a 200 OK response,
-      // then throw an exception.
       throw Exception('Failed to load album');
     }
   }
 
   Future<List<EventModel>> getSoon() async {
-    final response =
-        await http.get(Uri.parse('http://10.0.2.2:3000/api/eventos?date=soon'));
+    final response = await http.get(
+        Uri.parse('https://api.jaumaveonline.com:8463/api/eventos?date=soon'));
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body) as List<dynamic>;
@@ -35,8 +33,6 @@ class Usereventos extends StatelessWidget {
           data.map((json) => EventModel.fromJson(json)).toList();
       return events;
     } else {
-      // If the server did not return a 200 OK response,
-      // then throw an exception.
       throw Exception('Failed to load album');
     }
   }
@@ -86,40 +82,34 @@ class Usereventos extends StatelessWidget {
             height: 13,
           ),
           Padding(
-            padding: const EdgeInsets.only(
-              left: 24,
+            padding: const EdgeInsets.only(left: 24),
+            child: FutureBuilder<List<EventModel>>(
+              future: getEventos(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (snapshot.hasError || snapshot.data == null) {
+                  return const Center(child: Text('Error al cargar datos'));
+                } else {
+                  List<EventModel> events = snapshot.data!;
+                  return SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children:
+                          events.map((event) => EventCard(event)).toList(),
+                    ),
+                  );
+                }
+              },
             ),
-            child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: FutureBuilder<List<EventModel>>(
-                  future: getEventos(),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Center(child: CircularProgressIndicator());
-                    } else if (snapshot.hasError || snapshot.data == null) {
-                      return const Center(child: Text('Error al cargar datos'));
-                    } else {
-                      List<EventModel> events = snapshot.data!;
-                      return SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children:
-                              events.map((event) => EventCard(event)).toList(),
-                        ),
-                      );
-                    }
-                  },
-                )),
-          )
+          ),
         ],
       );
     }
 
     Widget popularNow() {
       return Container(
-        margin: const EdgeInsets.only(
-          top: 24,
-        ),
+        margin: const EdgeInsets.only(top: 24),
         child: Column(
           children: [
             Padding(
@@ -141,40 +131,34 @@ class Usereventos extends StatelessWidget {
               height: 16,
             ),
             Padding(
-              padding: const EdgeInsets.only(
-                left: 24,
+              padding: const EdgeInsets.only(left: 24),
+              child: FutureBuilder<List<EventModel>>(
+                future: getSoon(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(child: CircularProgressIndicator());
+                  } else if (snapshot.hasError || snapshot.data == null) {
+                    return const Center(child: Text('Error al cargar datos'));
+                  } else {
+                    List<EventModel> events = snapshot.data!;
+                    return SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children:
+                            events.map((event) => PopularCard(event)).toList(),
+                      ),
+                    );
+                  }
+                },
               ),
-              child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: FutureBuilder<List<EventModel>>(
-                    future: getSoon(),
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const Center(child: CircularProgressIndicator());
-                      } else if (snapshot.hasError || snapshot.data == null) {
-                        return const Center(
-                            child: Text('Error al cargar datos'));
-                      } else {
-                        List<EventModel> events = snapshot.data!;
-                        return SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            children: events
-                                .map((event) => PopularCard(event))
-                                .toList(),
-                          ),
-                        );
-                      }
-                    },
-                  )),
-            )
+            ),
           ],
         ),
       );
     }
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 235, 230),
+      backgroundColor: const Color.fromARGB(255, 255, 235, 230),
       body: SafeArea(
         child: ListView(
           children: [

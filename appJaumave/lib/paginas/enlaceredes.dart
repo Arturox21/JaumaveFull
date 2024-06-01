@@ -46,7 +46,7 @@ class Social extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
                     child: SizedBox(
                       child: Text(
-                        'Tienda Artesanal y Productora 100% Jaumavense',
+                        'Gobierno Municipal de Jaumave',
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontSize: 20,
@@ -62,8 +62,7 @@ class Social extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   child: ListTile(
-                    title:
-                        Text('Tienda Artesanal y Productora 100% Jaumavense'),
+                    title: Text('Gobierno Municipal de Jaumave 2021 - 2024'),
                     leading: Icon(
                       Icons.facebook_outlined,
                       color: Colors.blue,
@@ -71,7 +70,7 @@ class Social extends StatelessWidget {
                     ),
                     onTap: () async {
                       Uri uri = Uri.parse(
-                        'https://www.facebook.com/profile.php?id=100088940547860&locale=es_LA',
+                        'https://www.facebook.com/GobiernoMunicipalJaumave?locale=es_LA',
                       );
                       if (!await launcher.launchUrl(uri)) {
                         debugPrint(
@@ -85,40 +84,17 @@ class Social extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   child: ListTile(
-                    title: Text('832 234 0544'),
+                    title: Text('832 336 0119'),
                     leading: Icon(
                       Icons.phone,
                       color: Colors.blue,
                       size: 50,
                     ),
                     onTap: () async {
-                      Uri uri = Uri.parse('tel:832 234 0544');
+                      Uri uri = Uri.parse('tel:832 336 0119');
                       if (!await launcher.launchUrl(uri)) {
                         debugPrint(
                             "Could not launch the uri"); // because the simulator doesn't has the phone app
-                      }
-                    },
-                  ),
-                ),
-                const Divider(color: Colors.black87),
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                  child: ListTile(
-                    title: Text('turisjau2124@outlook.com'),
-                    leading: Icon(
-                      Icons.mail_outline,
-                      color: Colors.red,
-                      size: 50,
-                    ),
-                    onTap: () async {
-                      Uri uri = Uri.parse(
-                        'mailto: turisjau2124@outlook.com',
-                        //'mailto:info@rapidtech.dev?subject=Flutter Url Launcher&body=Hi, Flutter developer',
-                      );
-                      if (!await launcher.launchUrl(uri)) {
-                        debugPrint(
-                            "Could not launch the uri"); // because the simulator doesn't has the email app
                       }
                     },
                   ),
@@ -213,7 +189,7 @@ class Social extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
                     child: SizedBox(
                       child: Text(
-                        'Gobierno Municipal de Jaumave',
+                        'Tienda Artesanal y Productora 100% Jaumavense',
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontSize: 20,
@@ -229,7 +205,8 @@ class Social extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   child: ListTile(
-                    title: Text('Gobierno Municipal de Jaumave 2021 - 2024'),
+                    title:
+                        Text('Tienda Artesanal y Productora 100% Jaumavense'),
                     leading: Icon(
                       Icons.facebook_outlined,
                       color: Colors.blue,
@@ -237,7 +214,7 @@ class Social extends StatelessWidget {
                     ),
                     onTap: () async {
                       Uri uri = Uri.parse(
-                        'https://www.facebook.com/GobiernoMunicipalJaumave?locale=es_LA',
+                        'https://www.facebook.com/profile.php?id=100088940547860&locale=es_LA',
                       );
                       if (!await launcher.launchUrl(uri)) {
                         debugPrint(
@@ -251,17 +228,80 @@ class Social extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   child: ListTile(
-                    title: Text('832 336 0119'),
+                    title: Text('832 234 0544'),
                     leading: Icon(
                       Icons.phone,
                       color: Colors.blue,
                       size: 50,
                     ),
                     onTap: () async {
-                      Uri uri = Uri.parse('tel:832 336 0119');
+                      Uri uri = Uri.parse('tel:832 234 0544');
                       if (!await launcher.launchUrl(uri)) {
                         debugPrint(
                             "Could not launch the uri"); // because the simulator doesn't has the phone app
+                      }
+                    },
+                  ),
+                ),
+                const Divider(color: Colors.black87),
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  child: ListTile(
+                    title: Text('turisjau2124@outlook.com'),
+                    leading: Icon(
+                      Icons.mail_outline,
+                      color: Colors.red,
+                      size: 50,
+                    ),
+                    onTap: () async {
+                      Uri uri = Uri.parse(
+                        'mailto: turisjau2124@outlook.com',
+                        //'mailto:info@rapidtech.dev?subject=Flutter Url Launcher&body=Hi, Flutter developer',
+                      );
+                      if (!await launcher.launchUrl(uri)) {
+                        debugPrint(
+                            "Could not launch the uri"); // because the simulator doesn't has the email app
+                      }
+                    },
+                  ),
+                ),
+                const Divider(height: 50),
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
+                    child: SizedBox(
+                      child: Text(
+                        'Política de privacidad',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  child: ListTile(
+                    title: Text('Política de privacidad Jaumaventurate'),
+                    leading: Icon(
+                      Icons.open_in_new,
+                      color: Colors.black,
+                      size: 50,
+                    ),
+                    onTap: () async {
+                      Uri uri = Uri.parse(
+                        'https://politicasjaumaventurate.blogspot.com/2024/05/politica-de-privacidad-jaumaventurate.html',
+                      );
+                      if (!await launcher.launchUrl(uri)) {
+                        debugPrint(
+                            "No se pudo abrir el enlace"); // because the simulator doesn't has the email app
                       }
                     },
                   ),

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreenLugar extends StatefulWidget {
@@ -39,19 +40,42 @@ class _DetailScreenLugarState extends State<DetailScreenLugar> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Hero(
-              tag: widget.tag,
-              child: ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  bottomRight: Radius.circular(40),
-                  bottomLeft: Radius.circular(40),
-                ),
-                child: SizedBox(
-                  height: screenHeight / 2.2,
-                  width: screenWidth,
-                  child: Image.network(
-                    //"lib/images/${widget.asset}",
-                    "http://10.0.2.2:3000/optimize/${widget.asset}",
-                    fit: BoxFit.cover,
+              tag: widget
+                  .tag, // Asegúrate de usar el mismo tag en ambas instancias de Hero
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (_) {
+                    return Scaffold(
+                      body: Center(
+                        child: SizedBox(
+                          width: screenWidth,
+                          height: screenHeight,
+                          child: CachedNetworkImage(
+                            imageUrl:
+                                "https://api.jaumaveonline.com:8463/optimize/${widget.asset}",
+                            fit: BoxFit.cover,
+                            placeholder: (context, url) =>
+                                Center(child: CircularProgressIndicator()),
+                            errorWidget: (context, url, error) =>
+                                Center(child: Icon(Icons.error)),
+                          ),
+                        ),
+                      ),
+                    );
+                  }));
+                },
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    bottomRight: Radius.circular(40),
+                    bottomLeft: Radius.circular(40),
+                  ),
+                  child: SizedBox(
+                    height: screenHeight / 2.2,
+                    width: screenWidth,
+                    child: Image.network(
+                      "https://api.jaumaveonline.com:8463/optimize/${widget.asset}",
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),

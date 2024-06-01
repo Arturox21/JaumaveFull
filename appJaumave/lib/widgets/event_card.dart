@@ -16,8 +16,8 @@ class EventCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
-      height: 262,
+      width: 210, //200
+      height: 288, //228
       padding: const EdgeInsets.all(12),
       margin: const EdgeInsets.only(right: 18),
       decoration: BoxDecoration(
@@ -29,13 +29,13 @@ class EventCard extends StatelessWidget {
           Stack(
             children: [
               Container(
-                width: 176,
+                width: 196,
                 height: 117,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   image: DecorationImage(
                     image: NetworkImage(
-                        "http://10.0.2.2:3000/optimize/${event.image!}"),
+                        "https://api.jaumaveonline.com:8463/optimize/${event.image!}"),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -133,6 +133,9 @@ class EventCard extends StatelessWidget {
             width: double.infinity,
             height: 33,
             child: TextButton(
+              /*child: Padding(
+                padding: EdgeInsets.only(bottom: 7),
+              ),*/
               onPressed: () {
                 Navigator.push(
                     context,

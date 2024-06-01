@@ -126,7 +126,7 @@ class ItemWidgetState extends State<ItemWidget> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Image.network(
-                    "http://10.0.2.2:3000/optimize/$asset",
+                    "https://api.jaumaveonline.com:8463/optimize/$asset",
                     fit: BoxFit.cover,
                   ),
                 ),
