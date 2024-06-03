@@ -4,6 +4,7 @@ import 'package:mave/widgets/item.dart';
 import 'DetailScreenComida.dart';
 import 'package:mave/paginas/principal.dart';
 import 'package:http/http.dart' as http;
+import 'package:cached_network_image/cached_network_image.dart';
 import 'dart:convert';
 
 class HospedajeScreen extends StatefulWidget {
@@ -170,10 +171,14 @@ class _HospedajeScreenState extends State<HospedajeScreen> {
                   right: screenWidth / 20,
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.network(
-                    "https://api.jaumaveonline.com:8463/optimize/$asset",
+                  borderRadius: BorderRadius.circular(5),
+                  child: CachedNetworkImage(
+                    imageUrl:
+                        "https://api.jaumaveonline.com:8463/optimize/$asset",
                     fit: BoxFit.cover,
+                    placeholder: (context, url) =>
+                        Center(child: CircularProgressIndicator()),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
                   ),
                 ),
               ),
