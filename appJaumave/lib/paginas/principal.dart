@@ -1186,3 +1186,4 @@ class SwiperWidget extends StatelessWidget {
     );
   }
 }
+

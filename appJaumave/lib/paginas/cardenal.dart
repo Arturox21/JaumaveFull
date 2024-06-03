@@ -103,3 +103,4 @@ class NegociosSearchDelegate extends SearchDelegate {
     return Container();
   }
 }
+

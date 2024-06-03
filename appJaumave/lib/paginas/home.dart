@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
           style: const TextStyle(
             fontSize: 15,
             fontFamily: 'Montserrat',
-            color: Colors.black,
+            color: Color.fromARGB(255, 240, 157, 186),
             fontWeight: FontWeight.bold,
           ),
         ),

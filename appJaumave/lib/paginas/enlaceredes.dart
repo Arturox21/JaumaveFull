@@ -352,3 +352,4 @@ class Social extends StatelessWidget {
             ),
           )));
 }
+
