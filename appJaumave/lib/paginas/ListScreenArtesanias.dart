@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mave/paginas/negocios.dart';
 import 'package:mave/widgets/item.dart';
 import 'DetailScreenComida.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+
 import 'package:mave/paginas/principal.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -17,6 +17,7 @@ class ArtesaniaScreen extends StatefulWidget {
 class _ArtesaniaScreenState extends State<ArtesaniaScreen> {
   double screenWidth = 0;
   double screenHeight = 0;
+  //http://10.0.2.2:5173/paypal
 
   Future<List<dynamic>> getHospedaje() async {
     final response = await http.get(Uri.parse(
@@ -127,7 +128,6 @@ class _ArtesaniaScreenState extends State<ArtesaniaScreen> {
   }
 
   Widget item(
-      BuildContext context,
       String asset,
       String title,
       String desc,
@@ -137,8 +137,6 @@ class _ArtesaniaScreenState extends State<ArtesaniaScreen> {
       String contactos1,
       String contactos2,
       String contactos3) {
-    double screenWidth = MediaQuery.of(context).size.width;
-
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(
@@ -174,13 +172,9 @@ class _ArtesaniaScreenState extends State<ArtesaniaScreen> {
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(5),
-                  child: CachedNetworkImage(
-                    imageUrl:
-                        "https://api.jaumaveonline.com:8463/optimize/$asset",
+                  child: Image.network(
+                    "https://api.jaumaveonline.com:8463/optimize/$asset",
                     fit: BoxFit.cover,
-                    placeholder: (context, url) =>
-                        Center(child: CircularProgressIndicator()),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
                   ),
                 ),
               ),
@@ -212,13 +206,13 @@ class _ArtesaniaScreenState extends State<ArtesaniaScreen> {
                     ],
                   ),
                   /*const Text(
-                      "In Stock",
-                      style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.green,
-                      fontSize: 20,
-                      ),
-                  ),*/
+                        "In Stock",
+                        style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Colors.green,
+                        fontSize: 20,
+                        ),
+                    ),*/
                 ],
               ),
             ),

@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -14,7 +13,6 @@ class DetailScreenComida extends StatefulWidget {
       this.contacto2 = '',
       this.contacto3 = ''})
       : super(key: key);
-
   final String asset;
   final String tag;
   final String fullDesc;
@@ -44,8 +42,8 @@ class _DetailScreenComidaState extends State<DetailScreenComida> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Hero(
-              tag: widget
-                  .tag, // Asegúrate de usar el mismo tag en ambas instancias de Hero
+              tag:
+                  'imageHero', // Asegúrate de usar el mismo tag en ambas instancias de Hero
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (_) {
@@ -54,14 +52,10 @@ class _DetailScreenComidaState extends State<DetailScreenComida> {
                         child: SizedBox(
                           width: screenWidth,
                           height: screenHeight,
-                          child: CachedNetworkImage(
-                            imageUrl:
-                                "https://api.jaumaveonline.com:8463/optimize/${widget.asset}",
-                            fit: BoxFit.cover,
-                            placeholder: (context, url) =>
-                                Center(child: CircularProgressIndicator()),
-                            errorWidget: (context, url, error) =>
-                                Center(child: Icon(Icons.error)),
+                          child: Image.network(
+                            "https://api.jaumaveonline.com:8463/optimize/${widget.asset}",
+                            fit: BoxFit
+                                .cover, // Ajusta la imagen para que se vea completa
                           ),
                         ),
                       ),
@@ -76,14 +70,9 @@ class _DetailScreenComidaState extends State<DetailScreenComida> {
                   child: SizedBox(
                     height: screenHeight / 2.2,
                     width: screenWidth,
-                    child: CachedNetworkImage(
-                      imageUrl:
-                          "https://api.jaumaveonline.com:8463/optimize/${widget.asset}",
+                    child: Image.network(
+                      "https://api.jaumaveonline.com:8463/optimize/${widget.asset}",
                       fit: BoxFit.cover,
-                      placeholder: (context, url) =>
-                          Center(child: CircularProgressIndicator()),
-                      errorWidget: (context, url, error) =>
-                          Center(child: Icon(Icons.error)),
                     ),
                   ),
                 ),
@@ -229,8 +218,8 @@ class _DetailScreenComidaState extends State<DetailScreenComida> {
                       onPressed: () async {
                         var urlMap =
                             "https://www.google.com/maps/search/?api=1&query=${widget.coord}";
-                        if (await canLaunch(urlMap)) {
-                          await launch(urlMap);
+                        if (await canLaunchUrl(Uri.parse(urlMap))) {
+                          await launchUrl(Uri.parse(urlMap));
                         } else {
                           throw 'No se pudo abrir el mapa';
                         }
@@ -259,7 +248,7 @@ class _DetailScreenComidaState extends State<DetailScreenComida> {
                 horizontal: screenWidth / 20,
                 vertical: 50,
               ),
-            ),
+            )
           ],
         ),
       ),

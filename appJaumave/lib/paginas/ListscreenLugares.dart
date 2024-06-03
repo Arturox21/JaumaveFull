@@ -4,13 +4,11 @@ import 'package:mave/widgets/item2.dart';
 import 'package:mave/paginas/DetailScreenLugares.dart';
 import 'package:mave/paginas/principal.dart';
 import 'package:http/http.dart' as http;
-import 'package:cached_network_image/cached_network_image.dart';
 import 'dart:convert';
 
 class LugaresScreen extends StatefulWidget {
   const LugaresScreen({Key? key, required this.category}) : super(key: key);
   final Categoryy category;
-
   @override
   State<LugaresScreen> createState() => _LugaresScreenState();
 }
@@ -27,6 +25,8 @@ class _LugaresScreenState extends State<LugaresScreen> {
       var data = jsonDecode(response.body) as List;
       return data;
     } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
       throw Exception('Failed to load album');
     }
   }
@@ -79,6 +79,7 @@ class _LugaresScreenState extends State<LugaresScreen> {
           } else if (snapshot.hasError || snapshot.data == null) {
             return const Center(child: Text('Error al cargar datos'));
           } else {
+            //SingleChildScrollView
             return Scaffold(
               body: SingleChildScrollView(
                 child: SafeArea(
@@ -103,6 +104,8 @@ class _LugaresScreenState extends State<LugaresScreen> {
                               coordenada: restaurante['map'],
                               contactos1: restaurante['contact'],
                               onFavoritePressed: () {
+                                // Cuando el botón de favoritos es presionado en ItemWidget,
+                                // elimina el elemento de la lista y actualiza el estado
                                 setState(() {
                                   snapshot.data?.removeAt(index);
                                 });
@@ -164,14 +167,10 @@ class _LugaresScreenState extends State<LugaresScreen> {
                   right: screenWidth / 20,
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(5),
-                  child: CachedNetworkImage(
-                    imageUrl:
-                        "https://api.jaumaveonline.com:8463/optimize/$asset",
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.network(
+                    "https://api.jaumaveonline.com:8463/optimize/$asset",
                     fit: BoxFit.cover,
-                    placeholder: (context, url) =>
-                        Center(child: CircularProgressIndicator()),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
                   ),
                 ),
               ),
@@ -192,20 +191,24 @@ class _LugaresScreenState extends State<LugaresScreen> {
                           fontSize: 20,
                         ),
                       ),
-                      Flexible(
-                        child: Text(
-                          desc,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black87,
-                            fontSize: 14,
-                          ),
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 2,
+                      Text(
+                        desc,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black87,
+                          fontSize: 14,
                         ),
                       ),
                     ],
                   ),
+                  /*const Text(
+                        "In Stock",
+                        style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Colors.green,
+                        fontSize: 20,
+                        ),
+                    ),*/
                 ],
               ),
             ),

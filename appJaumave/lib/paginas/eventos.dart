@@ -19,6 +19,8 @@ class Usereventos extends StatelessWidget {
           data.map((json) => EventModel.fromJson(json)).toList();
       return events;
     } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
       throw Exception('Failed to load album');
     }
   }
@@ -33,6 +35,8 @@ class Usereventos extends StatelessWidget {
           data.map((json) => EventModel.fromJson(json)).toList();
       return events;
     } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
       throw Exception('Failed to load album');
     }
   }
@@ -82,34 +86,40 @@ class Usereventos extends StatelessWidget {
             height: 13,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 24),
-            child: FutureBuilder<List<EventModel>>(
-              future: getEventos(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(child: CircularProgressIndicator());
-                } else if (snapshot.hasError || snapshot.data == null) {
-                  return const Center(child: Text('Error al cargar datos'));
-                } else {
-                  List<EventModel> events = snapshot.data!;
-                  return SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children:
-                          events.map((event) => EventCard(event)).toList(),
-                    ),
-                  );
-                }
-              },
+            padding: const EdgeInsets.only(
+              left: 24,
             ),
-          ),
+            child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: FutureBuilder<List<EventModel>>(
+                  future: getEventos(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(child: CircularProgressIndicator());
+                    } else if (snapshot.hasError || snapshot.data == null) {
+                      return const Center(child: Text('Error al cargar datos'));
+                    } else {
+                      List<EventModel> events = snapshot.data!;
+                      return SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children:
+                              events.map((event) => EventCard(event)).toList(),
+                        ),
+                      );
+                    }
+                  },
+                )),
+          )
         ],
       );
     }
 
     Widget popularNow() {
       return Container(
-        margin: const EdgeInsets.only(top: 24),
+        margin: const EdgeInsets.only(
+          top: 24,
+        ),
         child: Column(
           children: [
             Padding(
@@ -131,34 +141,40 @@ class Usereventos extends StatelessWidget {
               height: 16,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 24),
-              child: FutureBuilder<List<EventModel>>(
-                future: getSoon(),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator());
-                  } else if (snapshot.hasError || snapshot.data == null) {
-                    return const Center(child: Text('Error al cargar datos'));
-                  } else {
-                    List<EventModel> events = snapshot.data!;
-                    return SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children:
-                            events.map((event) => PopularCard(event)).toList(),
-                      ),
-                    );
-                  }
-                },
+              padding: const EdgeInsets.only(
+                left: 24,
               ),
-            ),
+              child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: FutureBuilder<List<EventModel>>(
+                    future: getSoon(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(child: CircularProgressIndicator());
+                      } else if (snapshot.hasError || snapshot.data == null) {
+                        return const Center(
+                            child: Text('Error al cargar datos'));
+                      } else {
+                        List<EventModel> events = snapshot.data!;
+                        return SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: events
+                                .map((event) => PopularCard(event))
+                                .toList(),
+                          ),
+                        );
+                      }
+                    },
+                  )),
+            )
           ],
         ),
       );
     }
 
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 255, 235, 230),
+      backgroundColor: Color.fromARGB(255, 255, 235, 230),
       body: SafeArea(
         child: ListView(
           children: [
