@@ -45,8 +45,8 @@ dependencies:
   google_fonts: ^5.1.0
   url_launcher: ^6.1.14
   model_viewer_plus: ^1.7.0
-  youtube_player_flutter: ^9.0.0
-  #youtube_player_iframe: ^5.1.2
+  #youtube_player_flutter: ^9.0.0
+  youtube_player_iframe: ^5.1.2
   http: ^1.1.0
   localstorage: ^4.0.0+1
   shared_preferences: ^2.2.2

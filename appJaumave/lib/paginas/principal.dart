@@ -15,7 +15,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+//import 'package:youtube_player_iframe/youtube_player_iframe.dart';
+//import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:card_swiper/card_swiper.dart';
 
 //import 'package:mave/widgets/shared/theme.dart';
@@ -305,11 +306,11 @@ class Userprincipal extends StatelessWidget {
 
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 280,
+                height: 400,
                 child: ModelosView(),
               ),
 
-              const Divider(
+              /*const Divider(
                 height: 10,
               ),
 
@@ -317,7 +318,7 @@ class Userprincipal extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 height: 300,
                 child: VideoCarousel(),
-              ),
+              ),*/
 
               const SizedBox(height: 28),
               Padding(
@@ -333,16 +334,17 @@ class Userprincipal extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 28),
+              //const SizedBox(height: 28),
+              const Divider(height: 30),
 
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 280,
+                height: 400,
                 child: ImageCarousel(),
               ),
 
               const Divider(
-                height: 50,
+                height: 5,
               ),
               // Aquí añadimos la imagen debajo de las categorías
               Container(
@@ -352,56 +354,8 @@ class Userprincipal extends StatelessWidget {
               ),
 
               //const SizedBox(height: 28),
-              const Divider(
-                height: 50,
-              ),
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      vertical: 0,
-                      horizontal:
-                          20), // Ajusta los valores según el espacio que desees agregar
-                  child: SizedBox(
-                    child: Text(
-                      'Visita la página oficial / Visit the official website',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              const Divider(height: 50),
 
-              const SizedBox(height: 28),
-              // Aquí añadimos la imagen debajo de las categorías
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 300,
-                  child: GestureDetector(
-                    onTap: () {
-                      _launchURL(
-                          'http://www.jaumave.gob.mx/turismo/'); // Reemplaza esto con tu URL deseada
-                    },
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
-                        'assets/Monumento.jpg', // Ruta de la imagen local en assets
-                        // Ajusta el alto de la imagen según sea necesario
-                        fit: BoxFit
-                            .cover, // Ajusta el modo de ajuste de la imagen según sea necesario
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 28),
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Padding(
@@ -428,6 +382,60 @@ class Userprincipal extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 height: 300,
                 child: TiendaArtesanias(),
+              ),
+
+              //const SizedBox(height: 28),
+              const Divider(
+                height: 30,
+              ),
+
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      vertical: 0,
+                      horizontal:
+                          20), // Ajusta los valores según el espacio que desees agregar
+                  child: SizedBox(
+                    child: Text(
+                      'Visita la página oficial / Visit the official website',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 28),
+
+              // Aquí añadimos la imagen debajo de las categorías
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 300,
+                  child: GestureDetector(
+                    onTap: () {
+                      _launchURL(
+                          'http://www.jaumave.gob.mx/turismo/'); // Reemplaza esto con tu URL deseada
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        'assets/Monumento.jpg', // Ruta de la imagen local en assets
+                        // Ajusta el alto de la imagen según sea necesario
+                        fit: BoxFit
+                            .cover, // Ajusta el modo de ajuste de la imagen según sea necesario
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
@@ -543,7 +551,7 @@ class HeroCarouselCard extends StatelessWidget {
 
 //CARRUSEL DE VIDEOS
 
-class VideoCarousel extends StatefulWidget {
+/*class VideoCarousel extends StatefulWidget {
   @override
   _VideoCarouselState createState() => _VideoCarouselState();
 }
@@ -658,7 +666,7 @@ class _VideoCarouselState extends State<VideoCarousel> {
       ),
     );
   }
-}
+}*/
 
 class ImageCarousel extends StatelessWidget {
   final List<Map<String, String>> imgList = [
@@ -724,7 +732,7 @@ class ImageCarousel extends StatelessWidget {
             aspectRatio: 1, // Relación de aspecto 1:1 para que sea cuadrada
             enlargeCenterPage: false,
             enableInfiniteScroll: true,
-            autoPlay: true,
+            autoPlay: false,
             viewportFraction: 0.5,
           ),
           items: imgList
@@ -766,12 +774,13 @@ class ImageCarousel extends StatelessWidget {
                     },
                     child: Column(
                       children: [
-                        ClipOval(
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
                           child: CachedNetworkImage(
                             imageUrl: item["url"]!,
                             fit: BoxFit.cover,
-                            width: 150,
-                            height: 150,
+                            width: 200,
+                            height: 280,
                             placeholder: (context, url) =>
                                 CircularProgressIndicator(),
                             errorWidget: (context, url, error) =>
@@ -938,7 +947,7 @@ class ModelosView extends StatelessWidget {
           'Descubre Jaumave con RA',
           textAlign: TextAlign.left,
           style: TextStyle(
-              fontSize: 20,
+              fontSize: 23,
               fontFamily: 'Montserrat',
               fontWeight: FontWeight.bold,
               color: Colors.black),
@@ -952,7 +961,7 @@ class ModelosView extends StatelessWidget {
             children: [
               CustomImage(
                 imageUrl:
-                    'https://drive.google.com/uc?export=view&id=1MfCTjXnOuKehYnXo18S7JUX4Oo47n6dO',
+                    'https://drive.google.com/uc?export=view&id=1mKCmdPe3aLMk4Is9h_3X_064MFZyx-A5',
                 onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => mariposa()),
@@ -960,7 +969,7 @@ class ModelosView extends StatelessWidget {
               ),
               CustomImage(
                 imageUrl:
-                    'https://drive.google.com/uc?export=view&id=11coZvUbSNU_SxFAXxIA5LY3BGW0frhWt',
+                    'https://drive.google.com/uc?export=view&id=1626GcSFDKd8_Fy9r7jH7n7PznctFp6TR',
                 onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => cardenal()),
@@ -987,16 +996,16 @@ class CustomImage extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: EdgeInsets.all(8.0),
-        width: 150.0,
-        height: 150.0,
+        width: 230,
+        height: 300,
         child: Stack(
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(20.0),
               child: Image.network(
                 imageUrl,
-                width: 150.0,
-                height: 150.0,
+                width: 230,
+                height: 300,
                 fit: BoxFit.cover,
               ),
             ),
@@ -1186,4 +1195,3 @@ class SwiperWidget extends StatelessWidget {
     );
   }
 }
-
