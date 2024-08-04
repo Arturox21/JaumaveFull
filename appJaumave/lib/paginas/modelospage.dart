@@ -62,13 +62,13 @@ class apartadoRA extends StatelessWidget {
                         }
                         if (index == 3) {
                           // Página por defecto si index no coincide con ninguno de los casos anteriores
-                          return Taza();
+                          return Guacamaya();
                         }
                         if (index == 4) {
                           // Página por defecto si index no coincide con ninguno de los casos anteriores
                           return Mapa();
                         }
-                        return Guacamaya();
+                        return Taza();
                       },
                     ),
                   );
